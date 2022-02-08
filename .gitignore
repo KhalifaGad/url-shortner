@@ -1,0 +1,17 @@
+# generate output
+dist
+
+# dotenv environment variables file
+.env
+
+# Dependency directories
+node_modules/
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Logs
+logs
+*.log
+yarn-debug.log*
+yarn-error.log*

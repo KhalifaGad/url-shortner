@@ -1,0 +1,8 @@
+{
+  "name": "url-shortner",
+  "version": "1.0.0",
+  "description": "Node js app for shortening urls",
+  "main": "index.js",
+  "author": "Khalifa Gad",
+  "license": "MIT"
+}
