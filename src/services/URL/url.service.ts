@@ -11,7 +11,9 @@ class URLService implements IURLService {
 
   encode(url: string) {
     const urlEntity = new URLEntity({ url }).generateHash();
-    return this.repo.add(urlEntity);
+    const { data, error } = this.repo.add(urlEntity);
+    if (error) return { error };
+    return { data: data.getEntity() };
   }
 }
 
