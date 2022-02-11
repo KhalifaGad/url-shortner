@@ -9,6 +9,7 @@ export interface IURLEntityProps {
 export interface IURLEntity extends IURLEntityProps {
   generateHash(): IURLEntity;
   equals(other: string | IURLEntity): boolean;
+  getEntity(): IURLEntityProps;
 }
 
 class URLEntity implements IURLEntity {
@@ -44,6 +45,14 @@ class URLEntity implements IURLEntity {
 
   set createdAt(val: Date) {
     this._createdAt = val;
+  }
+
+  getEntity() {
+    return {
+      url: this.url,
+      hash: this.hash,
+      createdAt: this.createdAt,
+    };
   }
 
   generateHash(): IURLEntity {
