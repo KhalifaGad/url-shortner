@@ -1,1 +1,1 @@
-export { URLService } from "./URL";
+export * from "./URL";

@@ -1,1 +1,1 @@
-export { default as URLService } from "./url.service";
+export { default as URLService, IURLService } from "./url.service";

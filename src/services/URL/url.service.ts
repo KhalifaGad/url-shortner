@@ -2,7 +2,7 @@ import { ILayersContract } from "@types";
 import { IURLEntityProps, URLEntity } from "@domain";
 import { IURLRepo, URLRepo } from "@infra";
 
-interface IURLService {
+export interface IURLService {
   encode: (url: string) => ILayersContract<IURLEntityProps>;
 }
 
