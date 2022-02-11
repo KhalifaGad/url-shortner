@@ -1,5 +1,4 @@
 import { BaseException } from "@infra";
-import { Exception } from "@types";
 
 class ExceptionHandlerService {
   exception: any;
@@ -40,7 +39,7 @@ class ExceptionHandlerService {
   }
 
   checkIsInternal() {
-    this._isInternal = this.exception?.metadata.isInternal;
+    this._isInternal = this.exception.metadata?.isInternal;
     return this.isInternal;
   }
 
