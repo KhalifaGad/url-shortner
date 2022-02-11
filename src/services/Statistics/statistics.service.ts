@@ -1,10 +1,10 @@
 import { IStatisticsRepo, StatisticsRepo } from "@infra";
-import { IURLVisit } from "@types";
+import { ILayersContract, IURLStatistic, IURLVisit } from "@types";
 import { GeolocationService, IGeolocationService } from "../Geolocation";
 
 export interface IStatisticsService {
-  urlVisited: (hash: string, ip: string | number) => void;
-  //   decode: (hash: string) => ILayersContract<IURLEntityProps>;
+  urlVisited(hash: string, ip: string | number): void;
+  getStatistics(hash: string): ILayersContract<IURLStatistic>;
 }
 
 class StatisticsService implements IStatisticsService {
@@ -22,6 +22,10 @@ class StatisticsService implements IStatisticsService {
       city: geolocation?.city,
     };
     this.repo.addVisit(hash, visit);
+  }
+
+  getStatistics(hash: string) {
+    return this.repo.get(hash);
   }
 }
 
