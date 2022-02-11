@@ -1,4 +1,6 @@
-import Express, { Application } from "express";
+import express, { Application } from "express";
+import { errorMiddleware } from "./middlewares/error.middleware";
+import { router } from "./routes";
 
 class Server {
   port: number;
@@ -10,7 +12,10 @@ class Server {
   }
 
   init() {
-    this.app = Express();
+    this.app = express();
+    this.app.use(express.json());
+    this.app.use(router);
+    this.app.use(errorMiddleware);
   }
 
   start() {
