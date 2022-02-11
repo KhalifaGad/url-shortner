@@ -19,7 +19,7 @@ class URLService implements IURLService {
 
   decode(hash: string) {
     const { data } = this.repo.get(hash);
-    return { data: data.getEntity() };
+    return { data: data && data.getEntity() };
   }
 }
 
