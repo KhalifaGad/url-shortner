@@ -1,12 +1,8 @@
-import { randomBytes, randomUUID } from "crypto";
+import { randomBytes } from "crypto";
 
 class HashService {
   generateHash() {
-    const hexString = randomBytes(2).toString("hex");
-    const uuid = randomUUID();
-    const base64 = Buffer.from(hexString, "ascii");
-    const randomNumber = Math.random() * 13;
-    return uuid.substring(randomNumber, randomNumber + 3) + base64;
+    return randomBytes(6).toString("base64").replace("/", ".");
   }
 }
 
