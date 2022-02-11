@@ -15,3 +15,15 @@ export abstract class Exception extends Error {
   metadata: ExceptionMetaData;
   code: string;
 }
+
+export interface IURLVisit {
+  ip: string;
+  country?: string;
+  city?: string;
+  createdAt?: Date;
+}
+
+export interface IURLStatistic {
+  hash: string;
+  visits: IURLVisit[];
+}
