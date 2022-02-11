@@ -15,7 +15,9 @@
     "watch-node": "nodemon ./dist/index.js",
     "watch-test": "npm run test -- --watchAll --runInBand",
     "watch-ts": "tsc -w",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\""
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "start:docker:dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build",
+    "start:docker": "docker-compose -f docker-compose.yml -f docker-compose.staging.yml up --build"
   },
   "dependencies": {
     "dotenv": "^16.0.0",

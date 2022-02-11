@@ -1,0 +1,9 @@
+version: "3.9"
+   
+services:
+  url-shortner-api:
+    command: yarn run start
+    volumes:
+      - .:/app
+    environment:
+      NODE_ENV: 'dev'
