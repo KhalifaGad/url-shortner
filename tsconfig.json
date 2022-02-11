@@ -7,7 +7,7 @@
     "outDir": "dist",
     "rootDir": "src",
     "baseUrl": ".",
-    "allowJs": true,
+    "allowJs": false,
     "noImplicitAny": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,

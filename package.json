@@ -9,10 +9,10 @@
     "build-ts": "tsc",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
     "serve-debug": "nodemon --inspect dist/index.js",
-    "serve": "node dist/index.js",
+    "serve": "node ./dist/index.js",
     "start": "npm run build-ts && npm run serve",
     "test": "jest --forceExit --verbose --runInBand",
-    "watch-node": "nodemon dist/index.js",
+    "watch-node": "nodemon ./dist/index.js",
     "watch-test": "npm run test -- --watchAll --runInBand",
     "watch-ts": "tsc -w",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\""
@@ -40,6 +40,7 @@
     "@services": "dist/services",
     "@types": "dist/types",
     "@infra": "dist/infra",
+    "@interfaces": "dist/interfaces",
     "@domain": "dist/domain",
     "@utils": "dist/utils"
   }

@@ -1,5 +1,7 @@
 import dotenv from "dotenv";
-dotenv.config({ path: "../.env" });
+import path from "path";
+
+dotenv.config({ path: path.join(__dirname, "../../.env") });
 
 const config = {
   api: {
