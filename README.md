@@ -1,6 +1,7 @@
 ## Prerequisite
 - docker and docker compose should be installed in case you want to run in container mode
 - node version > 14 in case you want to run on local machine
+- add `.env` file in root directory and fill it.
 
 
 ## Running the app on local machine
