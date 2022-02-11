@@ -12,11 +12,17 @@ class URLRepo implements IRepo<IURLEntity> {
     const error = this.validate(url);
     if (error) return { error };
     url.createdAt = new Date();
-    URLData.set(url.hash, url);
+    const rawData = url.getEntity();
+    delete rawData.hash;
+    URLData.set(url.hash, rawData);
     return { data: url };
   }
 
-  get: (id: string) => ILayersContract<IURLEntity, undefined>;
+  get(hash: string): ILayersContract<IURLEntity> {
+    const rawData = URLData.get(hash);
+    if (!rawData) return { data: undefined };
+    return { data: new URLEntity({ ...rawData, hash }) };
+  }
 
   private validate(entity: IURLEntity): BaseException | undefined {
     if (!this.isUniqueHash(entity.url))
