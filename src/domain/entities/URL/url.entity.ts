@@ -8,6 +8,7 @@ export interface IURLEntityProps {
 
 export interface IURLEntity extends IURLEntityProps {
   generateHash(): string;
+  equals(other: string | IURLEntity): boolean;
 }
 
 class URLEntity implements IURLEntity {
@@ -48,6 +49,11 @@ class URLEntity implements IURLEntity {
   generateHash(): string {
     this.hash = HashService.generateHash();
     return this.hash;
+  }
+
+  equals(other: string | IURLEntity): boolean {
+    const otherURL = other instanceof URLEntity ? other.url : other;
+    return otherURL === this.url;
   }
 }
 
