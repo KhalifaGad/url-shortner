@@ -4,6 +4,7 @@ import { IURLRepo, URLRepo } from "@infra";
 
 export interface IURLService {
   encode: (url: string) => ILayersContract<IURLEntityProps>;
+  decode: (hash: string) => ILayersContract<IURLEntityProps>;
 }
 
 class URLService implements IURLService {
@@ -13,6 +14,11 @@ class URLService implements IURLService {
     const urlEntity = new URLEntity({ url }).generateHash();
     const { data, error } = this.repo.add(urlEntity);
     if (error) return { error };
+    return { data: data.getEntity() };
+  }
+
+  decode(hash: string) {
+    const { data } = this.repo.get(hash);
     return { data: data.getEntity() };
   }
 }
