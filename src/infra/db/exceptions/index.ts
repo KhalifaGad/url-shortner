@@ -9,4 +9,4 @@ class DuplicateKeyException extends BaseException {
   }
 }
 
-export { DuplicateKeyException };
+export { DuplicateKeyException, BaseException };

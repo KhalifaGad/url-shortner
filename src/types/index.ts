@@ -6,7 +6,12 @@ export interface ILayersContract<
   error?: Error;
 }
 
+type ExceptionMetaData = {
+  isInternal: boolean;
+  context: any;
+};
+
 export abstract class Exception extends Error {
-  metadata: any;
+  metadata: ExceptionMetaData;
   code: string;
 }
