@@ -5,10 +5,13 @@ import { DuplicateKeyException } from "../../exceptions";
 import { BaseException } from "../../exceptions/baseException";
 import { IRepo } from "../types";
 
+export type IURLRepo = IRepo<IURLEntity>;
+
 class URLRepo implements IRepo<IURLEntity> {
   add(url: IURLEntity): ILayersContract<IURLEntity> {
     const error = this.validate(url);
     if (error) return { error };
+    url.createdAt = new Date();
     URLData.set(url.hash, url);
     return { data: url };
   }

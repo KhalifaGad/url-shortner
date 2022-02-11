@@ -7,7 +7,7 @@ export interface IURLEntityProps {
 }
 
 export interface IURLEntity extends IURLEntityProps {
-  generateHash(): string;
+  generateHash(): IURLEntity;
   equals(other: string | IURLEntity): boolean;
 }
 
@@ -46,9 +46,9 @@ class URLEntity implements IURLEntity {
     this._createdAt = val;
   }
 
-  generateHash(): string {
+  generateHash(): IURLEntity {
     this.hash = HashService.generateHash();
-    return this.hash;
+    return this;
   }
 
   equals(other: string | IURLEntity): boolean {
