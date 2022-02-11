@@ -25,13 +25,16 @@ class URLRepo implements IRepo<IURLEntity> {
         context: `${entity.hash} has been duplicated!`,
       });
     if (this.isExist(entity))
-      return new DuplicateKeyException("url already exist");
+      return new DuplicateKeyException("URL already exist");
   }
 
   private isExist(entity: IURLEntity) {
-    const rawURL = URLData.get(entity.hash);
-    const existedEntity = new URLEntity({ ...rawURL });
-    return entity.equals(existedEntity);
+    for (const [, { url }] of URLData) {
+      if (entity.equals(url)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   private isUniqueHash(hash: string) {
